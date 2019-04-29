@@ -7,8 +7,8 @@ import { CustomHttpService } from 'src/modules/custom-loader/service/custom-http
 
 @Injectable()
 export class TransportService {
-    // public apiUrl = 'https://commi.ddns.net:44321/';
-     public apiUrl = 'https://localhost:44321/';
+    public apiUrl = 'https://commi.ddns.net:44321/';
+    // public apiUrl = 'https://localhost:44321/';
 
     constructor(private http: CustomHttpService, private toastr: ToastrService) { }
 
