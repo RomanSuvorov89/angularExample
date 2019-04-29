@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row style="text-align: center">
+        <div style="display: inline-block; margin-left: auto; margin-right: auto">
+            <img src="../../favicon.ico" class="angular-logo">
+            СЗИ для хранения данных на основе токенов. Кадочникова Анастасия ИУ8-112 (ИУ8ц-114)
+        </div>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <button mat-button (click)="SelectComponent('Auth')">
+            Авторизованные устройства
+            <mat-icon>verified_user</mat-icon>
+        </button>
+
+        <button mat-button (click)="SelectComponent('Data')">
+            Данные
+            <mat-icon>ballot</mat-icon>
+        </button>
+
+        <span class="fill-remaining-space"></span>
+
+        <button mat-button (click)="SelectComponent('UserProfile')">
+            Настройки аккаунта
+            <mat-icon>build</mat-icon>
+        </button>
+
+        <button mat-button (click)="Logout()">
+            Выход
+            <mat-icon>exit_to_app</mat-icon>
+        </button>
+
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<app-data *ngIf="isData"></app-data>
+<user-profile *ngIf="isUserProfile"></user-profile>
+<authorized-devices *ngIf="isAuth"></authorized-devices>

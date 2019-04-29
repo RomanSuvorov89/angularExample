@@ -1,0 +1,54 @@
+<h3 *ngIf="AllowedData.length" style="text-align: center">Активные токены с данными</h3>
+<div *ngFor="let allowedItem of AllowedData">
+    <mat-card>
+        <mat-card-content>
+            <form>
+                <mat-form-field>
+                    <input [(ngModel)]='allowedItem.description' name="description" matInput placeholder="Описание данных">
+                </mat-form-field>
+                <mat-form-field>
+                    <input [(ngModel)]='allowedItem.value' name="value" matInput placeholder="Данные">
+                </mat-form-field>
+                <button mat-raised-button class="btn btn-danger pull-right" (click)="update(allowedItem)">Обновить данные</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
+<br>
+<div style="text-align: center">
+    <button *ngIf="isCreateDataToken === false" mat-raised-button class="btn btn-danger pull-right" (click)="isCreateDataToken = true">Открыть форму создания данных</button>
+    <button *ngIf="isCreateDataToken === true" mat-raised-button class="btn btn-danger pull-right" (click)="isCreateDataToken = !isCreateDataToken">Скрыть форму</button>
+</div>
+<br>
+<div *ngIf="isCreateDataToken === true">
+    <mat-card>
+        <mat-card-content>
+            <form>
+                <mat-form-field>
+                    <input [(ngModel)]='newDataToken.description' name="description" matInput placeholder="Описание данных">
+                </mat-form-field>
+                <mat-form-field>
+                    <input [(ngModel)]='newDataToken.value' name="value" matInput placeholder="Данные">
+                </mat-form-field>
+                <button mat-raised-button class="btn btn-danger pull-right" (click)="create(newDataToken)">Сохранить данные</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
+<br>
+<h3 *ngIf="ExpiredData.length" style="text-align: center">Истекшие токены с данными</h3>
+<div *ngFor="let expiredItem of ExpiredData">
+    <mat-card>
+        <mat-card-content>
+            <form>
+                <mat-form-field>
+                    <input [(ngModel)]='expiredItem.description' name="description" matInput placeholder="Описание данных" disabled>
+                </mat-form-field>
+                <mat-form-field>
+                    <input [(ngModel)]='expiredItem.value' name="value" matInput placeholder="Данные" disabled>
+                </mat-form-field>
+                <button mat-raised-button class="btn btn-danger pull-right" (click)="updateDataToken(expiredItem)">Запросить новый токен</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

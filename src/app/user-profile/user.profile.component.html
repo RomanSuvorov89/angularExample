@@ -1,0 +1,27 @@
+<div *ngIf="userdata" class="signin-content">
+    <mat-card>
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit()">
+                <mat-form-field class="example-full-width">
+                    <input [(ngModel)]='userdata.login' name="login" matInput placeholder="Ваш логин" disabled>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input [(ngModel)]='userdata.password' name="password" matInput placeholder="Ваш пароль" type="password">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input [(ngModel)]='userdata.email' name="email" matInput placeholder="Почтовый адрес" type="email">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input [(ngModel)]='userdata.middleName' name="middlename" matInput placeholder="Фамилия" type="text">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input [(ngModel)]='userdata.firstName' name="firstname" matInput placeholder="Имя" type="text">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input [(ngModel)]='userdata.lastName' name="lastname" matInput placeholder="Отчество" type="text">
+                </mat-form-field>
+                <button mat-raised-button type="submit" class="btn btn-danger pull-right">Обновить профиль</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
